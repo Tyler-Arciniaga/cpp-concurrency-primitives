@@ -17,9 +17,11 @@ public:
     std::condition_variable cv;
 
     void submit(std::function<void()> f);
-    // void shutdown();
-    // ~ThreadPool();
+    void shutdown();
+    ~ThreadPool();
 
 private:
-    static void ExecuteJob(int id, ThreadPool *pool);
+    void ExecuteJob(int id);
+    std::vector<std::thread> workers;
+    bool stop = false;
 };
