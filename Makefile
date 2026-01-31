@@ -1,4 +1,4 @@
 all:
-	g++ src/main.cpp src/sushi_pool.cpp -o main
+	g++ src/sushi_pool.cpp test/main.cpp -o main
 clean:
 	- rm main
