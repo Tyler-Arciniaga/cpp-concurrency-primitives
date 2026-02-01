@@ -8,13 +8,14 @@ public:
     explicit BoundedQueue(size_t cap);
     void Push(int x);
     int Pop();
-    void TryPush(int x); // does not block when queue is full
+    bool TryPush(int x); // does not block when queue is full
     int TryPop();
+    int Size();
     ~BoundedQueue();
-    size_t size = 0;
 
 private:
     int *arr; // points to start of dynamically sized array
+    size_t size = 0;
     size_t cap;
     size_t head = 0;
     std::condition_variable cv;

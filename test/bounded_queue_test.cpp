@@ -14,7 +14,7 @@ int main()
     bq.Push(1);
     bq.Push(2);
 
-    std::cout << bq.size << "\n";
+    std::cout << bq.Size() << "\n";
 
     std::thread t(ThreadPop, &bq);
     bq.Push(3);
