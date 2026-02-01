@@ -1,4 +1,4 @@
-#include "../src/sushi_pool.h"
+#include "../src/thread_pool.h"
 
 void one_sec_task()
 {
