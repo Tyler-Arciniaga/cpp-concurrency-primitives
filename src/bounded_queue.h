@@ -1,6 +1,7 @@
 #include <iostream>
 #include <condition_variable>
 #include <mutex>
+#include <optional>
 
 class BoundedQueue
 {
@@ -9,7 +10,7 @@ public:
     void Push(int x);
     int Pop();
     bool TryPush(int x); // does not block when queue is full
-    int TryPop();
+    std::optional<int> TryPop();
     int Size();
     ~BoundedQueue();
 

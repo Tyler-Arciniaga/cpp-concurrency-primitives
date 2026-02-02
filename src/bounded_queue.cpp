@@ -41,8 +41,17 @@ bool BoundedQueue::TryPush(int x)
     return res;
 }
 
-int BoundedQueue::TryPop()
+std::optional<int> BoundedQueue::TryPop()
 {
+    std::unique_lock<std::mutex> lock(mtx);
+    if (size > 0)
+    {
+        int x = arr[head];
+        head = (head + 1) % cap;
+        size--;
+        return x;
+    }
+    return std::nullopt;
 }
 
 int BoundedQueue::Pop()
