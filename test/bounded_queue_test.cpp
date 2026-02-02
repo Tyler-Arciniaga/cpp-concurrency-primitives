@@ -1,7 +1,7 @@
 #include "../src/bounded_queue.h"
 #include <chrono>
 #include <thread>
-void ThreadPop(BoundedQueue *bq)
+void ThreadPop(BoundedQueue<int> *bq)
 {
     std::this_thread::sleep_for(std::chrono::seconds(4));
     int x = bq->Pop();
@@ -9,7 +9,7 @@ void ThreadPop(BoundedQueue *bq)
 }
 int main()
 {
-    BoundedQueue bq(2);
+    BoundedQueue<int> bq(2);
 
     bq.Push(1);
     bq.Push(2);
